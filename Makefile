@@ -1,4 +1,3 @@
-# 変数の設定
 NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -10,7 +9,6 @@ SRCS = $(shell find $(SRC_DIR) -name "*.c")
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 TEST_SRCS = $(shell find $(TEST_DIR) -name "*.c")
 
-# ターゲットの定義
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -22,7 +20,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
-# テストのコンパイルと実行
 test: $(NAME)
 	$(CC) $(CFLAGS) -I $(INCLUDE_DIR) $(TEST_SRCS) -L. -lft -o test.out
 	./test.out
